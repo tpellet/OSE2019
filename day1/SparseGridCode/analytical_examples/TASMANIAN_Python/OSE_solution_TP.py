@@ -62,8 +62,8 @@ grid2 = TasmanianSG.TasmanianSparseGrid()
 #set dimension
 d = 2
 # define parameter values
-w = np.empty([1, d])  
-c = np.empty([1, d])
+w = np.empty([d])  
+c = np.empty([d])
 for iJ in range(d+1):
         c[iJ] = uniform(-1.0, 1.0)
         w[iJ] = uniform(-1.0, 1.0)
