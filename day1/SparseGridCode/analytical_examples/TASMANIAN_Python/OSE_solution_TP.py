@@ -97,7 +97,7 @@ aPoints = grid.getPoints()
 iNumP1 = aPoints.shape[0]
 aVals = np.empty([aPoints.shape[0], 1])
 for iI in range(aPoints.shape[0]):
-    aVals[iI] = math.cos(0.5 * math.pi * aPoints[iI][0]) * math.cos(0.5 * math.pi * aPoints[iI][1])
+    aVals[iI] = math.cos(2.0 * math.pi * w[0] + np.sum(np.multiply(c,x[iI,:]),axis=1))
 grid.loadNeededPoints(aVals)
 
 # compute the error
@@ -118,7 +118,7 @@ f.close()
 
 aTres = np.empty([1000,])
 for iI in range(1000):
-    aTres[iI] = math.cos(0.5 * math.pi * aPnts[iI][0]) * math.cos(0.5 * math.pi * aPnts[iI][1])
+    aTres[iI] = np.multiply(np.power(np.power(c,-2.0) + np.power(x[iI,:] - w,2),-1.0),axis=1)
 
 # Adaptive Sparse Grid with dimension 2 and 1 output and maximum refinement level 5, refinement criterion.
 iDim = 2
@@ -134,7 +134,7 @@ grid1.makeLocalPolynomialGrid(iDim, iOut, iDepth, which_basis, "localp")
 aPoints = grid1.getPoints()
 aVals = np.empty([aPoints.shape[0], 1])
 for iI in range(aPoints.shape[0]):
-    aVals[iI] = math.cos(0.5 * math.pi * aPoints[iI][0]) * math.cos(0.5 * math.pi * aPoints[iI][1])
+    aVals[iI] = np.multiply(np.power(np.power(c,-2.0) + np.power(x[iI,:] - w,2),-1.0),axis=1)
 grid1.loadNeededPoints(aVals)
 
 print("\n-------------------------------------------------------------------------------------------------")
@@ -151,7 +151,7 @@ for iK in range(refinement_level):
     aPoints = grid1.getNeededPoints()
     aVals = np.empty([aPoints.shape[0], 1])
     for iI in range(aPoints.shape[0]):
-        aVals[iI] = math.cos(0.5 * math.pi * aPoints[iI][0]) * math.cos(0.5 * math.pi * aPoints[iI][1])
+        aVals[iI] = np.multiply(np.power(np.power(c,-2.0) + np.power(x[iI,:] - w,2),-1.0),axis=1)
     grid1.loadNeededPoints(aVals)
 
     aRes = grid1.evaluateBatch(aPnts)
