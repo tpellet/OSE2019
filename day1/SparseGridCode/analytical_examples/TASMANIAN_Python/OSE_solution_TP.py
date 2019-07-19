@@ -76,9 +76,10 @@ for iI in range(1000):
 
 
 # Result
-aTres = np.empty([1000,])
+aTres = np.empty([1000,d])
 for iI in range(1000):
-    aTres[iI] = math.cos(2.0 * math.pi * w[0] + np.sum(np.multiply(c,x[iI,:]),axis=1))
+    for iJ in range(1000):
+    aTres[iI,iJ] = math.cos(2.0 * math.pi * w[0] + c[0]*x[iI,0] + c[1]*x[iJ,1])
 
 # Sparse Grid with dimension 1 and 1 output and refinement level 5
 iDim = d

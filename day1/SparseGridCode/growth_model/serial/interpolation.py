@@ -31,7 +31,7 @@ def sparse_grid(n_agents, iDepth):
     iDim=n_agents
 
     grid.makeLocalPolynomialGrid(iDim, iOut, iDepth, which_basis, "localp")
-    grid.setDomainTransform(ranges)
+    grid.setDomainTransform(ranges) # Change domain to K low and upper bar
 
     aPoints=grid.getPoints()
     iNumP1=aPoints.shape[0]
@@ -39,7 +39,7 @@ def sparse_grid(n_agents, iDepth):
     
     file=open("comparison0.txt", 'w')
     for iI in range(iNumP1):
-        aVals[iI]=solver.initial(aPoints[iI], n_agents)[0] 
+        aVals[iI]=solver.initial(aPoints[iI], n_agents)[0]  # Solve the value function problem for all grid points
         v=aVals[iI]*np.ones((1,1))
         to_print=np.hstack((aPoints[iI].reshape(1,n_agents), v))
         np.savetxt(file, to_print, fmt='%2.16f')
