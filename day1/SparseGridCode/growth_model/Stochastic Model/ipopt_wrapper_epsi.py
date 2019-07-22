@@ -51,13 +51,11 @@ def EV_F_ITER(X, k_init, n_agents, grid, phi_i):
     grid3 = grid[3]
     grid4 = grid[4]
     # Compute Value Function
-    print("first grid:",grid[4])
-    print("dimensions of knext",knext.shape)
-    VT_sum=utility(cons, lab, phi_i) + beta*(pi*grid1.evaluate(knext) + \
+
+    VT_sum=utility(cons, lab, phi_i) + beta*(pi*grid0.evaluate(knext) + pi*grid1.evaluate(knext) + \
                                       pi*grid2.evaluate(knext) + \
                                       pi*grid3.evaluate(knext) + \
-                                      pi*grid4.evaluate(knext) + \
-                                      pi*grid5.evaluate(knext))
+                                      pi*grid4.evaluate(knext))
        
     return VT_sum
     

@@ -48,7 +48,7 @@ def sparse_grid_iter(n_agents, iDepth, iG, Lvalold):
         
         grid.setSurplusRefinement(fTol, 1, "fds")   #also use fds, or other rules
         aPoints = grid.getNeededPoints()
-        grid.plotPoints2D()
+        #grid.plotPoints2D()
         print("Number of Points",grid.getNumPoints())
         aVals=np.empty([aPoints.shape[0], iOut])
         
