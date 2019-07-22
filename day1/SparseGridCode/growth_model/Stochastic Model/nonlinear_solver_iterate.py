@@ -75,13 +75,13 @@ def iterate(k_init, n_agents, Lvalold, phi_i):
     def eval_f(X):
         return EV_F_ITER(X, k_init, n_agents, Lvalold, phi_i)
         
-    def eval_grad_f(x):
+    def eval_grad_f(X):
         return EV_GRAD_F_ITER(X, k_init, n_agents, Lvalold, phi_i)
         
-    def eval_g(x):
+    def eval_g(X):
         return EV_G_ITER(X, k_init, n_agents, phi_i)
         
-    def eval_jac_g(x, flag):
+    def eval_jac_g(X, flag):
         return EV_JAC_G_ITER(X, flag, k_init, n_agents, phi_i)
      
     # First create a handle for the Ipopt problem 
@@ -94,6 +94,7 @@ def iterate(k_init, n_agents, Lvalold, phi_i):
     nlp.int_option("print_level", 0)
 
     x, z_l, z_u, constraint_multipliers, obj, status=nlp.solve(X)
+    #print("obj ", obj)
     nlp.close()
     # x: Solution of the primal variables
     # z_l, z_u: Solution of the bound multipliers

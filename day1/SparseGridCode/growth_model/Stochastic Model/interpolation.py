@@ -36,11 +36,12 @@ def sparse_grid(n_agents, iDepth, iG):
     aPoints=grid.getPoints()
     iNumP1=aPoints.shape[0]
     aVals=np.empty([iNumP1, iOut])
+
     
     file=open("comparison0.txt", 'w')
     for iI in range(iNumP1):
         aVals[iI]=solver.initial(aPoints[iI], n_agents, phi[iG])[0]# Solve the value function problem for all grid points
-
+  
     grid.loadNeededPoints(aVals) # evaluate interpolant at grid points
     
     #refinement level
@@ -48,7 +49,7 @@ def sparse_grid(n_agents, iDepth, iG):
         grid.setSurplusRefinement(fTol, 1, "fds")   #also use fds, or other rules
         aPoints = grid.getNeededPoints()
         aVals=np.empty([aPoints.shape[0], iOut])
-        
+
         for iI in range(aPoints.shape[0]):
             aVals[iI]=solver.initial(aPoints[iI], n_agents, phi[iG])[0]# Solve the value function problem for all grid points
         

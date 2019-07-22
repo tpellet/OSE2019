@@ -36,39 +36,31 @@ def sparse_grid_iter(n_agents, iDepth, iG, Lvalold):
     aPoints=grid.getPoints()
     iNumP1=aPoints.shape[0]
     aVals=np.empty([iNumP1, iOut])
-    
-    file=open("comparison1.txt", 'w')
-    for iI in range(iNumP1):
-        aVals[iI]=solveriter.iterate(aPoints[iI], n_agents, Lvalold, phi[iG])[0]
-            
-    grid.loadNeededPoints(aVals) # Get interpolant at sparse grid
-    
-    #refinement level
-    for iK in range(refinement_level):
-        
-        grid.setSurplusRefinement(fTol, 1, "fds")   #also use fds, or other rules
-        aPoints = grid.getNeededPoints()
-        #grid.plotPoints2D()
-        print("Number of Points",grid.getNumPoints())
-        aVals=np.empty([aPoints.shape[0], iOut])
-        
-        for iI in range(aPoints.shape[0]):
-            # Solve the value function problem for all grid points
-            aVals[iI] = solveriter.iterate(aPoints[iI], n_agents, Lvalold, phi[iG])[0]
 
-        # Update interpolant
-        grid.loadNeededPoints(aVals)
+    
+    #print(phi[iG])
+    for iI in range(aPoints.shape[0]): 
+        # Solve the value function problem for all grid points
+
+        X = solveriter.iterate(aPoints[iI], n_agents, Lvalold, phi[iG])
+        aVals[iI] = X[0]
+
+    print("aValsI ", aVals) 
+    
+    # Update interpolant
+    grid.loadNeededPoints(aVals)
 
 
     #print(" {0:9d} {1:9d}  {2:1.2e}".format(iK+1, grid.getNumPoints()))
-    grid2 = TasmanianSG.TasmanianSparseGrid()
-    grid2.makeLocalPolynomialGrid(iDim, iOut, refinement_level+iDepth, which_basis, "localp")
-    print("Max Number of Points",grid2.getNumPoints())
+    #grid2 = TasmanianSG.TasmanianSparseGrid()
+    #grid2.makeLocalPolynomialGrid(iDim, iOut, refinement_level+iDepth, which_basis, "localp")
+    #print("Max Number of Points",grid2.getNumPoints())
     
     #f=open("grid_iter.txt", 'w')
     #np.savetxt(f, aPoints, fmt='% 2.16f')
     #f.close()
-    
+    #print("C shape ", cVals.shape)
+    #print("Value Function Shape ",aVals.shape)
     return grid
 
 #======================================================================

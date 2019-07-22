@@ -18,7 +18,7 @@ def utility(cons=[], lab=[], phi_i=[]):
     sum_util=0.0
     n=len(cons)
     for i in range(n):
-        nom1=(cons[i]/(phi_i*big_A))**(1.0-gamma) -1.0
+        nom1=(cons[i]/(big_A))**(1.0-gamma) -1.0
         den1=1.0-gamma
         
         nom2=(1.0-psi)*((lab[i]**(1.0+eta)) -1.0)

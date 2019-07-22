@@ -38,11 +38,11 @@ def V_INFINITY(k=[],phi_i=[]):
 #   Objective Function during VFI (note - we need to interpolate on an "old" sprase grid)
     
 def EV_F_ITER(X, k_init, n_agents, grid, phi_i):
-    
     # Extract Variables
     cons=X[0:n_agents]
     lab=X[n_agents:2*n_agents]
     inv=X[2*n_agents:3*n_agents]
+
     
     knext= (1-delta)*k_init + inv
     grid0 = grid[0]
@@ -56,7 +56,6 @@ def EV_F_ITER(X, k_init, n_agents, grid, phi_i):
                                       pi*grid2.evaluate(knext) + \
                                       pi*grid3.evaluate(knext) + \
                                       pi*grid4.evaluate(knext))
-       
     return VT_sum
     
 #=======================================================================
