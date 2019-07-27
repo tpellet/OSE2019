@@ -9,7 +9,8 @@ FFLAGS=-O3
 
 #######################################################################	
 
-all: broadcast_mpi.exec allreduce_mpi.exec scatter_mpi.exec
+all: broadcast_mpi.exec allreduce_mpi.exec scatter_mpi.exec \
+     pi_mpi.exec
 
 #######################################################################	
 
@@ -27,6 +28,9 @@ allreduce_mpi.exec: allreduce.cpp
 scatter_mpi.exec: scatter.cpp
 	$(CXX) $(FFLAGS) scatter.cpp -o scatter_mpi.exec
 
+## Example 4
+pi_mpi.exec: pi_mpi.cpp
+	$(CXX) $(FFLAGS) pi_mpi.cpp -o pi_mpi.exec
 
 clean :
 	rm -f *.exec

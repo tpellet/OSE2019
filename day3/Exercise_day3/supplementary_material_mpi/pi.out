@@ -1,0 +1,12 @@
+[midway2-0028:12570] *** Process received signal ***
+[midway2-0028:12570] Signal: Floating point exception (8)
+[midway2-0028:12570] Signal code: Integer divide-by-zero (1)
+[midway2-0028:12570] Failing at address: 0x40849c
+[midway2-0028:12570] [ 0] /lib64/libpthread.so.0(+0xf5d0)[0x7ff7b523d5d0]
+[midway2-0028:12570] [ 1] ./pi_mpi.exec[0x40849c]
+[midway2-0028:12570] [ 2] /lib64/libc.so.6(__libc_start_main+0xf5)[0x7ff7b4e833d5]
+[midway2-0028:12570] [ 3] ./pi_mpi.exec[0x4085ff]
+[midway2-0028:12570] *** End of error message ***
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 12570 on node midway2-0028 exited on signal 8 (Floating point exception).
+--------------------------------------------------------------------------

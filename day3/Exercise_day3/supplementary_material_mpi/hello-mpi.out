@@ -1,4 +1,12 @@
-Rank 2:	Rank 3:	Sum = 0
-Rank 4:	Sum = 0
-Rank 1:	Sum = 10
-Sum = 0
+[midway2-0028:11994] *** Process received signal ***
+[midway2-0028:11994] Signal: Floating point exception (8)
+[midway2-0028:11994] Signal code: Integer divide-by-zero (1)
+[midway2-0028:11994] Failing at address: 0x40849c
+[midway2-0028:11994] [ 0] /lib64/libpthread.so.0(+0xf5d0)[0x7f536e7885d0]
+[midway2-0028:11994] [ 1] ./pi_mpi.exec[0x40849c]
+[midway2-0028:11994] [ 2] /lib64/libc.so.6(__libc_start_main+0xf5)[0x7f536e3ce3d5]
+[midway2-0028:11994] [ 3] ./pi_mpi.exec[0x4085ef]
+[midway2-0028:11994] *** End of error message ***
+--------------------------------------------------------------------------
+mpirun noticed that process rank 0 with PID 11994 on node midway2-0028 exited on signal 8 (Floating point exception).
+--------------------------------------------------------------------------
