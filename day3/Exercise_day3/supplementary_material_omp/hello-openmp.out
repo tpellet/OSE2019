@@ -1,6 +1,3 @@
-serial error   : 1.54987e-13
-parallel error : 1.67644e-14
-8 threads
-serial     : 0.258139 seconds	parallel   : 0.0868199 seconds
-speedup    : 2.97327
-efficiency : 0.371659
+dot of vectors with length 100000000 with 8 threads
+dot product 2.5e+15 which matches the expected value 2.5e+15
+that took 0.144788 seconds

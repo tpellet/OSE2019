@@ -4,7 +4,7 @@
 #include <omp.h>
 
 int main(void){
-    const int N = 100000000;
+    const int N = 100000000000000;
     std::vector<double> a(N);
     std::vector<double> b(N);
 
@@ -20,6 +20,7 @@ int main(void){
     double time = -omp_get_wtime();
     double dot=0.;
 
+    #pragma omp parallel for reduction(+:dot) shared(a,b) 
     for(int i=0; i<N; i++) {
         dot += a[i] * b[i];
     }
