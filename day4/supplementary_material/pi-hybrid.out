@@ -1,0 +1,23 @@
+using 8 OpenMP threads
+using 8 OpenMP threads
+using 8 OpenMP threads
+using 8 OpenMP threads
+Number of clusters is 4
+Loop size: 125000000
+W is equal to 2.000000e-09
+I am node 0 and the number of loops to do is 125000000
+I am node 0 and w is equal to 0.000000
+I am node 2 and the number of loops to do is 125000000
+I am node 2 and w is equal to 0.000000
+I am node 1 and the number of loops to do is 125000000
+I am node 1 and w is equal to 0.000000
+I am node 3 and the number of loops to do is 125000000
+I am node 3 and w is equal to 0.000000
+The sum within a cluster is 300000
+The sum within a cluster is 300000
+The sum within a cluster is 300000
+The total sum across nodes and threads is 956551451
+Pi: 1.913103
+500000000 steps approximates pi as : 1.9131, with relative error 0.39104
+the solution took 0.648218 seconds
+The sum within a cluster is 128
